@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <circle cx="60" cy="60" r="56" fill="#0d100e"/>
+  <path d="M60 18c-20 0-36 16-36 36 0 13.5 7.5 25.2 18.5 31.3L36 98h18l7.5-13c1.5.3 3 .5 4.5.5 20 0 36-16 36-36S80 18 60 18z" fill="none" stroke="#1e2420" stroke-width="14" stroke-linecap="round"/>
+  <path d="M60 26c-15.5 0-28 12.5-28 28 0 10.5 5.8 19.7 14.4 24.4" stroke="#c8f000" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M74 78c7.5-4.5 13-12.5 13-22 0-4-.9-7.8-2.4-11.2" stroke="#c8f000" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M42 90c4.5 5.5 11 11 18 11s13.5-5.5 18-11c-4 5-10 9-18 9s-14-4-18-9z" fill="#c8f000"/>
+  <path d="M38 92c6 8 14 14 22 14s16-6 22-14" fill="#a8d000" opacity="0.85"/>
+  <rect x="54" y="34" width="12" height="30" rx="2" fill="#2a322c"/>
+  <rect x="57" y="26" width="6" height="10" rx="1" fill="#2a322c"/>
+  <line x1="57" y1="40" x2="63" y2="40" stroke="#c8f000" stroke-width="1.5" opacity="0.6"/>
+  <line x1="57" y1="46" x2="63" y2="46" stroke="#c8f000" stroke-width="1.5" opacity="0.6"/>
+  <path d="M38 30l5-7h12l5 7h-3.5l-3.5-4.5h-8L41.5 30H38z" fill="#d4a017"/>
+  <circle cx="48" cy="24.5" r="1.2" fill="#f0d060"/>
+</svg>

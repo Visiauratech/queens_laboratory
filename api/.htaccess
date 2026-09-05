@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Send all /api/* traffic into Laravel's public front controller
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

@@ -1,0 +1,140 @@
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(10, 14, 12, 0.4), rgba(5, 7, 6, 0.95));
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1.1fr;
+  gap: 2.5rem;
+  padding: 3.5rem 0 2.5rem;
+}
+
+.footer__brand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.footer__brand h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.footer__brand p {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-top: 0.2rem;
+}
+
+.footer__tag {
+  color: var(--text-muted);
+  max-width: 38ch;
+  font-size: 0.92rem;
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer__col h4 {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--metallic);
+  margin-bottom: 0.4rem;
+}
+
+.footer__col a,
+.footer__col p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer__col a:hover {
+  color: var(--metallic);
+}
+
+.footer__col--contact {
+  gap: 0.85rem;
+}
+
+.footer__col--contact .contact-row__body p,
+.footer__col--contact .contact-row__body a {
+  font-size: 0.88rem;
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--line);
+  padding: 1.25rem 1rem 1.5rem;
+  text-align: center;
+}
+
+.footer__credit {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer__credit a {
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer__credit-brand {
+  color: var(--metallic);
+  font-weight: 700;
+  text-shadow:
+    0 0 8px rgba(200, 240, 0, 0.55),
+    0 0 18px rgba(200, 240, 0, 0.35),
+    0 0 32px rgba(200, 240, 0, 0.2);
+  animation: viespireGlow 2.8s ease-in-out infinite;
+}
+
+.footer__credit a:hover .footer__credit-brand {
+  color: #e8ff6a;
+  text-shadow:
+    0 0 10px rgba(200, 240, 0, 0.75),
+    0 0 24px rgba(200, 240, 0, 0.45),
+    0 0 40px rgba(200, 240, 0, 0.28);
+}
+
+@keyframes viespireGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 8px rgba(200, 240, 0, 0.45),
+      0 0 18px rgba(200, 240, 0, 0.25);
+  }
+  50% {
+    text-shadow:
+      0 0 12px rgba(200, 240, 0, 0.85),
+      0 0 28px rgba(200, 240, 0, 0.45),
+      0 0 42px rgba(200, 240, 0, 0.25);
+  }
+}
+
+@media (max-width: 900px) {
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2.5rem;
+  }
+}

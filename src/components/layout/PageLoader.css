@@ -1,0 +1,183 @@
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  gap: 1.4rem;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(200, 240, 0, 0.1), transparent 45%),
+    #050706;
+  animation: loaderFadeIn 0.25s ease;
+}
+
+.page-loader__core {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  display: grid;
+  place-items: center;
+}
+
+.page-loader__orbit {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--metallic);
+  border-right-color: rgba(200, 240, 0, 0.35);
+  animation: loaderSpin 1.1s linear infinite;
+}
+
+.page-loader__orbit--inner {
+  inset: 14px;
+  border-top-color: var(--gold);
+  border-right-color: transparent;
+  border-bottom-color: rgba(212, 160, 23, 0.4);
+  animation-duration: 1.6s;
+  animation-direction: reverse;
+}
+
+.page-loader__lab {
+  position: absolute;
+  right: -18px;
+  bottom: -4px;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  color: var(--metallic);
+  filter: drop-shadow(0 0 10px rgba(200, 240, 0, 0.35));
+}
+
+.page-loader__microscope {
+  width: 42px;
+  height: 42px;
+  animation: labFloat 2.2s ease-in-out infinite;
+}
+
+.page-loader__lens {
+  animation: lensPulse 1.4s ease-in-out infinite;
+}
+
+.page-loader__beam {
+  animation: beamScan 1.6s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.page-loader__dna {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+
+.page-loader__dna span {
+  display: block;
+  width: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #c8f000, #d4a017);
+  animation: dnaPulse 1.1s ease-in-out infinite;
+}
+
+.page-loader__dna span:nth-child(1) {
+  transform: translateX(-2px);
+  animation-delay: 0s;
+}
+
+.page-loader__dna span:nth-child(2) {
+  transform: translateX(2px);
+  animation-delay: 0.12s;
+  opacity: 0.85;
+}
+
+.page-loader__dna span:nth-child(3) {
+  transform: translateX(-2px);
+  animation-delay: 0.24s;
+  opacity: 0.7;
+}
+
+.page-loader__dna span:nth-child(4) {
+  transform: translateX(2px);
+  animation-delay: 0.36s;
+  opacity: 0.55;
+}
+
+.page-loader__text {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--metallic);
+}
+
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes labFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes lensPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes beamScan {
+  0%,
+  100% {
+    opacity: 0.25;
+    stroke-dasharray: 2 6;
+  }
+  50% {
+    opacity: 0.95;
+    stroke-dasharray: 8 2;
+  }
+}
+
+@keyframes dnaPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateX(0) scaleX(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1.15);
+  }
+}
+
+@keyframes loaderFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loader__microscope,
+  .page-loader__lens,
+  .page-loader__beam,
+  .page-loader__dna span,
+  .page-loader__orbit {
+    animation: none !important;
+  }
+}
