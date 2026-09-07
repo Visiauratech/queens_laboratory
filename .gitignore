@@ -10,8 +10,14 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+live
+*.zip
 *.local
+
+# Local secrets only — keep production/live env files in git
 .env
+!.env.production
+!.env_live
 
 # Editor
 .vscode/*

@@ -1,17 +1,43 @@
+# ============================================================
+# Queens Laboratory — Apache config (domain root)
+# Fixes React Router refresh 404 + routes /api to Laravel
+# ============================================================
+
+DirectoryIndex index.html index.php
+
+<IfModule mod_negotiation.c>
+  Options -MultiViews -Indexes
+</IfModule>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Keep /api requests inside the Laravel api folder (do not SPA-rewrite)
-  RewriteRule ^api(?:/|$) - [L]
+  # --------------------------------------------------
+  # Laravel API  →  /api/*  maps to  /api/public/*
+  # Contact endpoint: POST /api/contact
+  # --------------------------------------------------
 
-  # Existing files / directories
+  # Serve real files inside api/public directly
+  RewriteCond %{REQUEST_URI} ^/api/(.*)$
+  RewriteCond %{DOCUMENT_ROOT}/api/public/%1 -f
+  RewriteRule ^api/(.*)$ api/public/$1 [L]
+
+  # Send remaining /api requests to Laravel front controller
+  RewriteRule ^api(?:/(.*))?$ api/public/index.php [QSA,L]
+
+  # --------------------------------------------------
+  # React SPA — prevent 404 on refresh (/about, /contact…)
+  # --------------------------------------------------
+  RewriteRule ^index\.html$ - [L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-
-  # SPA fallback — prevents 404 on refresh for React Router routes
   RewriteRule ^ index.html [L]
 </IfModule>
+
+# Extra safety on hosts that still emit 404 before rewrite
+ErrorDocument 404 /index.html
 
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
